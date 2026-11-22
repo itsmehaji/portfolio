@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mohammad Haji portfolio: AI agents, data systems, Salesforce apps, Java backend projects, and LeetCode problem solving.">
+  <meta name="color-scheme" content="light dark">
+  <title>Mohammad Haji | Software Developer</title>
+  <script>
+    (function () {
+      let storedTheme = null;
+
+      try {
+        storedTheme = localStorage.getItem("theme");
+      } catch (error) {
+        storedTheme = null;
+      }
+
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = storedTheme || systemTheme;
+
+      function syncThemeToggle(theme) {
+        const themeToggle = document.querySelector(".theme-toggle");
+        const themeLabel = themeToggle ? themeToggle.querySelector("span") : null;
+
+        if (!themeToggle || !themeLabel) {
+          return;
+        }
+
+        const isDark = theme === "dark";
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        themeToggle.setAttribute("aria-label", isDark ? "Enable light mode" : "Enable dark mode");
+        themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+      }
+
+      function setStoredTheme(theme) {
+        try {
+          localStorage.setItem("theme", theme);
+        } catch (error) {
+          // Ignore storage failures on file:// or restricted contexts.
+        }
+      }
+
+      window.togglePortfolioTheme = function () {
+        const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = nextTheme;
+        setStoredTheme(nextTheme);
+        syncThemeToggle(nextTheme);
+      };
+
+      window.syncThemeToggle = syncThemeToggle;
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+          syncThemeToggle(document.documentElement.dataset.theme);
+        });
+      } else {
+        syncThemeToggle(document.documentElement.dataset.theme);
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Mohammad Haji home">
+      <span class="brand-mark">MH</span>
+      <span>Mohammad Haji</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#leetcode">LeetCode</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Enable dark mode">
+      <i data-lucide="moon-star" aria-hidden="true"></i>
+      <span>Dark mode</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">VIT-AP CSE Student | Software Developer | AI/Data Builder</p>
+        <h1>Building practical AI agents, data systems, Salesforce apps, and Java backend simulations.</h1>
+        <p class="hero-text">
+          I am Mohammad Haji, a computer science student focused on turning learning into working systems:
+          from privacy-preserving ML experiments to business workflow automation and algorithmic problem solving.
+        </p>
+
+        <div class="hero-actions" aria-label="Profile links">
+          <a class="button primary" href="https://github.com/itsmehaji" target="_blank" rel="noreferrer">
+            <i data-lucide="github" aria-hidden="true"></i>
+            GitHub
+          </a>
+          <a class="button secondary" href="https://www.linkedin.com/in/mohammadhaji7744" target="_blank" rel="noreferrer">
+            <i data-lucide="linkedin" aria-hidden="true"></i>
+            LinkedIn
+          </a>
+          <a class="button secondary" href="https://leetcode.com/u/Itshaji/" target="_blank" rel="noreferrer">
+            <i data-lucide="code-2" aria-hidden="true"></i>
+            LeetCode
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Mohammad Haji profile summary">
+        <img src="assets/profile.jpg" alt="Mohammad Haji profile photo">
+        <div class="signal-list">
+          <div>
+            <span>24</span>
+            <p>GitHub repositories</p>
+          </div>
+          <div>
+            <span>159</span>
+            <p>LeetCode solved</p>
+          </div>
+          <div>
+            <span>4</span>
+            <p>Core build areas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-band" aria-label="Professional focus">
+      <div>
+        <strong>AI agents</strong>
+        <span>NL-to-SQL, orchestration, sentiment and intent workflows</span>
+      </div>
+      <div>
+        <strong>Data systems</strong>
+        <span>Analytics, scraping, cleaning, dashboards, SQL</span>
+      </div>
+      <div>
+        <strong>Backend foundations</strong>
+        <span>Java, OOP, collections, exceptions, DSA</span>
+      </div>
+      <div>
+        <strong>Salesforce</strong>
+        <span>LWC, Apex, automation, retail workflows</span>
+      </div>
+    </section>
+
+    <section id="projects" class="section-shell">
+      <div class="section-heading">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects that show how I think and build</h2>
+        <p>These are the projects I would lead with on the portfolio, because they connect your AI/data interests with practical engineering outcomes.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card accent-teal">
+          <div class="project-topline">
+            <span>AI/Data</span>
+            <a href="https://github.com/itsmehaji/voloplay-customer-360" target="_blank" rel="noreferrer" aria-label="Open VoloPlay Customer 360 on GitHub">
+              <i data-lucide="external-link" aria-hidden="true"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+          <h3>VoloPlay Customer 360</h3>
+          <p>
+            Python orchestration layer that aggregates multiple customer data sources, analyzes intent and sentiment, and recommends a next best action.
+          </p>
+          <div class="architecture-mini" aria-hidden="true">
+            <span>Sources</span>
+            <b class="flow-arrow" aria-hidden="true">&rarr;</b>
+            <span>AI parser</span>
+            <b class="flow-arrow" aria-hidden="true">&rarr;</b>
+            <span>Action</span>
+          </div>
+          <ul>
+            <li>Strong proof of AI-assisted business decision workflows.</li>
+            <li>Good candidate for a future live demo or case-study page.</li>
+            <li>Needs a README before it becomes portfolio-ready.</li>
+          </ul>
+          <div class="tags">
+            <span>Python</span>
+            <span>AI</span>
+            <span>Data synthesis</span>
+          </div>
+        </article>
+
+        <article class="project-card accent-amber">
+          <div class="project-topline">
+            <span>Salesforce</span>
+            <a href="https://github.com/itsmehaji/Smart-Retail-Salesforce-Project" target="_blank" rel="noreferrer" aria-label="Open Smart Retail Salesforce project on GitHub">
+              <i data-lucide="external-link" aria-hidden="true"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+          <h3>Smart Retail Salesforce Project</h3>
+          <p>
+            Retail management system using Lightning Web Components, Apex, and Salesforce automation for customer and sales workflows.
+          </p>
+          <div class="architecture-mini" aria-hidden="true">
+            <span>LWC</span>
+            <b class="flow-arrow" aria-hidden="true">&rarr;</b>
+            <span>Apex</span>
+            <b class="flow-arrow" aria-hidden="true">&rarr;</b>
+            <span>CRM</span>
+          </div>
+          <ul>
+            <li>Shows platform engineering beyond basic web apps.</li>
+            <li>Pairs well with LinkedIn content and resume experience.</li>
+            <li>Best project for recruiter-facing business context.</li>
+          </ul>
+          <div class="tags">
+            <span>Salesforce</span>
+            <span>LWC</span>
+            <span>Apex</span>
+          </div>
+        </article>
+
+        <article class="project-card accent-rose">
+          <div class="project-topline">
+            <span>Research ML</span>
+            <a href="https://github.com/itsmehaji/An-Adaptive-Privacy-Preserving-Framework-For-Secure-SplitFed-Learning-Using-HE-DP-and-SMC" target="_blank" rel="noreferrer" aria-label="Open SplitFed project on GitHub">
+              <i data-lucide="external-link" aria-hidden="true"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+          <h3>Privacy-Preserving SplitFed Learning</h3>
+          <p>
+            Comparative study of SplitFed Learning with homomorphic encryption, differential privacy, and secure multi-party computation.
+          </p>
+          <div class="architecture-mini" aria-hidden="true">
+            <span>Clients</span>
+            <b class="flow-arrow" aria-hidden="true">&rarr;</b>
+            <span>SplitFed</span>
+            <b class="flow-arrow" aria-hidden="true">&rarr;</b>
+            <span>Privacy</span>
+          </div>
+          <ul>
+            <li>Gives your portfolio a serious research signal.</li>
+            <li>Should be upgraded with a short paper-style summary.</li>
+            <li>Needs metrics, charts, and a README for fast scanning.</li>
+          </ul>
+          <div class="tags">
+            <span>Jupyter</span>
+            <span>Federated learning</span>
+            <span>Privacy</span>
+          </div>
+        </article>
+
+        <article class="project-card accent-blue">
+          <div class="project-topline">
+            <span>AI Agent</span>
+            <a href="https://github.com/itsmehaji/Data-Analyst-AI-Agent" target="_blank" rel="noreferrer" aria-label="Open Data Analyst AI Agent on GitHub">
+              <i data-lucide="external-link" aria-hidden="true"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+          <h3>Data Analyst AI Agent</h3>
+          <p>
+            Multi-agent system for natural language to SQL conversion, built as a Google AI Agents Capstone 2025 project.
+          </p>
+          <div class="architecture-mini" aria-hidden="true">
+            <span>Prompt</span>
+            <b class="flow-arrow" aria-hidden="true">&rarr;</b>
+            <span>SQL</span>
+            <b class="flow-arrow" aria-hidden="true">&rarr;</b>
+            <span>Insight</span>
+          </div>
+          <ul>
+            <li>Strong bridge between prompt engineering and data work.</li>
+            <li>Ideal for a demo video or sample query walkthrough.</li>
+            <li>Shows applied AI instead of only model experimentation.</li>
+          </ul>
+          <div class="tags">
+            <span>Python</span>
+            <span>Agents</span>
+            <span>SQL</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section-shell split-section">
+      <div class="section-heading align-left">
+        <p class="eyebrow">Capabilities</p>
+        <h2>Skills grouped by the work they support</h2>
+        <p>Instead of listing every tool equally, this layout shows where each skill becomes useful in real projects.</p>
+      </div>
+
+      <div class="skill-grid">
+        <div class="skill-group">
+          <i data-lucide="server-cog" aria-hidden="true"></i>
+          <h3>Backend</h3>
+          <p>Java, OOP, collections, exception handling, backend simulations, REST fundamentals.</p>
+        </div>
+        <div class="skill-group">
+          <i data-lucide="brain-circuit" aria-hidden="true"></i>
+          <h3>AI & Data</h3>
+          <p>Python, ML workflows, AI agents, SQL, data cleaning, sentiment and intent analysis.</p>
+        </div>
+        <div class="skill-group">
+          <i data-lucide="cloud-cog" aria-hidden="true"></i>
+          <h3>Salesforce</h3>
+          <p>Lightning Web Components, Apex, automation, platform-based business applications.</p>
+        </div>
+        <div class="skill-group">
+          <i data-lucide="layout-dashboard" aria-hidden="true"></i>
+          <h3>Frontend</h3>
+          <p>HTML, CSS, JavaScript, responsive interfaces, accessible layouts, static deployment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="leetcode" class="section-shell leetcode-section">
+      <div class="leetcode-copy">
+        <p class="eyebrow">Problem solving</p>
+        <h2>Consistent DSA practice with Java-first fundamentals</h2>
+        <p>
+          My LeetCode profile shows 159 accepted problems across arrays, strings, math, hash tables,
+          trees, binary search, dynamic programming, and SQL/database topics.
+        </p>
+        <a class="button secondary" href="https://leetcode.com/u/Itshaji/" target="_blank" rel="noreferrer">
+          <i data-lucide="square-arrow-out-up-right" aria-hidden="true"></i>
+          View profile
+        </a>
+      </div>
+
+      <div class="stat-panel" aria-label="LeetCode statistics">
+        <div>
+          <span>159</span>
+          <p>Total solved</p>
+        </div>
+        <div>
+          <span>101</span>
+          <p>Easy</p>
+        </div>
+        <div>
+          <span>50</span>
+          <p>Medium</p>
+        </div>
+        <div>
+          <span>8</span>
+          <p>Hard</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-shell about-section">
+      <div class="section-heading align-left">
+        <p class="eyebrow">About</p>
+        <h2>I like learning by building systems that explain themselves.</h2>
+      </div>
+      <div class="about-copy">
+        <p>
+          I am a computer science student at VIT-AP with a growing focus on applied AI, data engineering,
+          Salesforce development, and Java backend foundations. My project work is shaped by a simple habit:
+          understand the problem, build a working version, then document the architecture clearly enough for
+          another developer to trust it.
+        </p>
+        <p>
+          Right now, I am sharpening my portfolio around AI agents, privacy-preserving ML, business workflow
+          automation, and DSA practice. The goal is to make each project easy to evaluate through clear READMEs,
+          diagrams, screenshots, and measurable outcomes.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="section-shell contact-section">
+      <div class="section-heading align-left">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk about projects, internships, research, or collaboration.</h2>
+        <p>
+          This form is static for now. It validates your message and opens an email draft. Later, the same form
+          can submit to a backend API that stores messages in MySQL.
+        </p>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+          <small class="error-message" data-error-for="name"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <small class="error-message" data-error-for="email"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Tell me what you want to build or discuss" required></textarea>
+          <small class="error-message" data-error-for="message"></small>
+        </div>
+
+        <button class="button primary form-submit" type="submit">
+          <i data-lucide="send" aria-hidden="true"></i>
+          Send message
+        </button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>(c) 2026 Mohammad Haji. Built as a static portfolio, ready for backend contact integration.</p>
+    <div>
+      <a href="mailto:mohammadhaji744@gmail.com">Email</a>
+      <a href="https://github.com/itsmehaji" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/mohammadhaji7744" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
